@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h2>Nahhh---t yet?:</h2>
+        </div>
+        <div class="col-4">
+            <h2>Add New Devourable:</h2>
+        </div>
+        <div class="col-4">
+             <h2>Devoured:</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="notDevoured">
+                <ul class="list-group">
+                    {{#each meals}}
+                        {{#unless devoured}}
+                            {{>meals/meal-block devoured= false}}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <form id="newFood" class="form-group">
+                <label for="devoured">Input new meal here:</label>
+                <input type="text" id="devoured" class="form-control"  placeholder="e.g. pizza rolls">
+                <button id="save" class="btn btn-primary" type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="col-4">
+            <div class="devoured">
+                <ul class="list-group">
+                    {{#each meals}}
+                        {{#if devoured}}
+                            {{>meals/meal-block devoured=true}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
