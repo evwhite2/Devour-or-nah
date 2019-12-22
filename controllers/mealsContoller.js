@@ -10,19 +10,18 @@ router.get("/", (req, res)=>{
         {
             meals: data
         };
-    console.log(dataObj)
     res.render("index", dataObj);
     });
 });
 
 //API routes
-router.get("/api/all", (req, res)=>{
+router.get("/api/all/", (req, res)=>{
     meal.all(data=>{
     res.json(data);
     });
 });
 
-router.post("/api/all", (req, res)=>{
+router.post("/api/all/", (req, res)=>{
 
     meal.create(
         ["txt", "devoured"],
