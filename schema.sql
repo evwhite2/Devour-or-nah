@@ -1,4 +1,3 @@
--- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY "password";
 DROP DATABASE IF EXISTS devour_db;
 CREATE DATABASE devour_db;
 USE devour_db;
