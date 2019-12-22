@@ -27,11 +27,43 @@ router.post("/api/all", (req, res)=>{
     meal.create(
         ["txt", "devoured"],
         [req.body.txt, req.body.devoured] 
-        ), (result=>{
+        , (result=>{
             res.json({id: result.ID})
-        });
+        })
+    );
         console.log(`new data inserted: ${req.body.txt}`)
         
+});
+
+router.put("/api/all/:id", (req, res)=>{
+    
+    var condition = "id = " + req.params.id;
+
+    console.log("id: "+ condition);
+
+    meal.update({
+        devoured: req.body.devoured
+        }, condition, result=>{
+            if (result.changedRows == 0) {
+                return res.status(404).end();
+              } else {
+                res.status(200).end();
+              }
+    })
+    
+});
+
+router.delete("/api/all/:id", (req, res)=>{
+
+    var condition = "id = " + req.params.id;
+
+    meal.delete(condition, result=>{
+        if (result.affectedRows == 0) {
+            return res.status(404).end();
+          } else {
+            res.status(200).end();
+          }
+        });
 });
 
 module.exports = router;

@@ -8,7 +8,7 @@ var meal = {
     },
 
     create: function(col, val, cb){
-        orm.create("meals", col, vals, res=>{
+        orm.create("meals", col, val, res=>{
             cb(res);
         });
     },
