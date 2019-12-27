@@ -6,7 +6,7 @@ $("#newFood").on("submit", function(event){
        devoured: 0
    };
 
-   $.ajax("api/all", {
+   $.ajax("api/all/", {
        type: "POST",
        data: newMeal
    }).then(()=>{
