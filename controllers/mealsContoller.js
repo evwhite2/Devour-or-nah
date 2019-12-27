@@ -1,6 +1,6 @@
 var express = require("express");
 
-var router = express();
+var router = express.Router();
 
 var meal = require("../models/meal");
 
